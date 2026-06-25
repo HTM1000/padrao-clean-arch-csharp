@@ -9,6 +9,9 @@
     <PackageVersion Include="FluentValidation" Version="11.10.0" />
     <PackageVersion Include="FluentValidation.DependencyInjectionExtensions" Version="11.10.0" />
     <PackageVersion Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="10.0.9" />
+    <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.9" />
     <!-- ef core 10 + providers -->
     <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="10.0.9" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="10.0.9" />
