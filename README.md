@@ -11,7 +11,7 @@ Domain  ←  Application  ←  Infrastructure  →  Api
 - **Domain** — núcleo sem dependências de infra. Entidades ricas, Value Objects, eventos de domínio, ports de repositório. Invariantes protegidas por factories e setters privados.
 - **Application** — CQRS com MediatR (`ICommand`/`IQuery` sobre `Result<T>`), validação (FluentValidation) e behaviors (logging, validação, unidade de trabalho). Queries leem o `DbContext` direto projetando DTOs.
 - **Infrastructure** — EF Core (provider selecionável), repositórios, `UnitOfWork` que faz commit + dispatch de eventos de domínio, e autenticação (JWT + PBKDF2).
-- **Api** — controllers finos sobre `ISender`, `Result → IActionResult`, ProblemDetails (RFC 7807), Swagger com Bearer, health checks, Serilog.
+- **Api** — controllers finos sobre `ISender`, `Result → IActionResult`, ProblemDetails (RFC 7807), OpenAPI nativo + **Scalar** (UI de docs) com Bearer, health checks, Serilog.
 
 A regra de dependência é **verificada por testes** (NetArchTest) em `tests/CleanArchTemplate.Architecture.Tests`.
 
@@ -40,7 +40,7 @@ O `dotnet new` renomeia os namespaces de `CleanArchTemplate` para o nome informa
    ```bash
    dotnet run --project src/CleanArchTemplate.Api
    ```
-4. Acesse o Swagger em `https://localhost:<porta>/swagger` e o health em `/health`.
+4. Acesse a documentação **Scalar** em `https://localhost:<porta>/scalar/v1` e o health em `/health`.
 
 ## Trocar de provider (Postgres ↔ SQL Server)
 
