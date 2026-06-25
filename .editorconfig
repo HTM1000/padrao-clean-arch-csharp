@@ -1,0 +1,56 @@
+root = true
+
+[*]
+indent_style = space
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{cs,csx}]
+indent_size = 4
+end_of_line = crlf
+
+# --- estilo de código (.NET) ---
+dotnet_sort_system_directives_first = true
+dotnet_separate_import_directive_groups = false
+csharp_using_directive_placement = outside_namespace:error
+csharp_style_namespace_declarations = file_scoped:error
+csharp_prefer_braces = true:error
+csharp_style_var_for_built_in_types = false:suggestion
+csharp_style_var_when_type_is_apparent = true:suggestion
+dotnet_style_qualification_for_field = false:error
+dotnet_style_qualification_for_property = false:error
+dotnet_style_require_accessibility_modifiers = for_non_interface_members:error
+dotnet_style_readonly_field = true:warning
+csharp_prefer_simple_using_statement = true:suggestion
+
+# usings desnecessários como erro
+dotnet_diagnostic.IDE0005.severity = error
+
+# --- naming: campos privados com _camelCase ---
+dotnet_naming_rule.private_fields_underscore.severity = error
+dotnet_naming_rule.private_fields_underscore.symbols = private_fields
+dotnet_naming_rule.private_fields_underscore.style = underscore_prefix
+dotnet_naming_symbols.private_fields.applicable_kinds = field
+dotnet_naming_symbols.private_fields.applicable_accessibilities = private
+dotnet_naming_style.underscore_prefix.required_prefix = _
+dotnet_naming_style.underscore_prefix.capitalization = camel_case
+
+# --- ajustes de ruído de analyzers em template (mantém rigor real, evita falsos atritos) ---
+# CA1515: tipos públicos poderiam ser internal — num template a API pública é intencional
+dotnet_diagnostic.CA1515.severity = none
+# MA0048: file name must match type name — relaxado para arquivos com múltiplos tipos pequenos
+dotnet_diagnostic.MA0048.severity = suggestion
+# MA0004: ConfigureAwait(false) — desnecessário em ASP.NET Core (sem SynchronizationContext)
+dotnet_diagnostic.MA0004.severity = none
+# RCS1194: exceções de domínio exigem mensagem por design (sem ctor sem-parâmetro / serialização obsoleta)
+dotnet_diagnostic.RCS1194.severity = none
+# S4035: bases abstratas (Entity/ValueObject) implementam IEquatable e são herdáveis de propósito;
+#        a igualdade já é guardada por GetType(), então selar/IEqualityComparer não se aplica.
+dotnet_diagnostic.S4035.severity = none
+
+# --- testes: relaxar regras que não agregam em código de teste ---
+[tests/**/*.cs]
+dotnet_diagnostic.CA1707.severity = none   # underscores em nomes de teste
+dotnet_diagnostic.MA0004.severity = none
+dotnet_diagnostic.CA1822.severity = none

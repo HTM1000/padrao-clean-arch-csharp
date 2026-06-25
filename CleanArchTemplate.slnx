@@ -1,0 +1,14 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/CleanArchTemplate.Api/CleanArchTemplate.Api.csproj" />
+    <Project Path="src/CleanArchTemplate.Application/CleanArchTemplate.Application.csproj" />
+    <Project Path="src/CleanArchTemplate.Domain/CleanArchTemplate.Domain.csproj" />
+    <Project Path="src/CleanArchTemplate.Infrastructure/CleanArchTemplate.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/CleanArchTemplate.Application.Tests/CleanArchTemplate.Application.Tests.csproj" />
+    <Project Path="tests/CleanArchTemplate.Architecture.Tests/CleanArchTemplate.Architecture.Tests.csproj" />
+    <Project Path="tests/CleanArchTemplate.Domain.Tests/CleanArchTemplate.Domain.Tests.csproj" />
+    <Project Path="tests/CleanArchTemplate.Infrastructure.Tests/CleanArchTemplate.Infrastructure.Tests.csproj" />
+  </Folder>
+</Solution>
