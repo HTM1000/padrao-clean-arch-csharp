@@ -48,9 +48,15 @@ dotnet_diagnostic.RCS1194.severity = none
 # S4035: bases abstratas (Entity/ValueObject) implementam IEquatable e são herdáveis de propósito;
 #        a igualdade já é guardada por GetType(), então selar/IEqualityComparer não se aplica.
 dotnet_diagnostic.S4035.severity = none
+# CA1000: o padrão Result<T> exige factories estáticas no tipo genérico (Success/Failure) — idiomático.
+dotnet_diagnostic.CA1000.severity = none
+# CA1716: 'Error' conflita com keyword do VB; este projeto é C#-only (nome consagrado no padrão Result).
+dotnet_diagnostic.CA1716.severity = none
 
 # --- testes: relaxar regras que não agregam em código de teste ---
 [tests/**/*.cs]
 dotnet_diagnostic.CA1707.severity = none   # underscores em nomes de teste
 dotnet_diagnostic.MA0004.severity = none
 dotnet_diagnostic.CA1822.severity = none
+dotnet_diagnostic.CA1859.severity = none   # retornos por interface em fakes de teste são intencionais
+dotnet_diagnostic.MA0049.severity = none
