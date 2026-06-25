@@ -3,6 +3,7 @@ using CleanArchTemplate.Application.Common.Abstractions;
 using CleanArchTemplate.Application.Products.Queries.GetProductById;
 using CleanArchTemplate.Domain.Products;
 using CleanArchTemplate.Domain.Products.ValueObjects;
+using CleanArchTemplate.Domain.Users;
 using FluentAssertions;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,8 @@ public sealed class GetProductByIdQueryHandlerTests
     {
         public DbSet<Product> Products => Set<Product>();
 
+        public DbSet<User> Users => Set<User>();
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Product>(entity =>
@@ -23,6 +26,13 @@ public sealed class GetProductByIdQueryHandlerTests
                     .HasConversion(id => id.Value, value => new ProductId(value));
                 entity.OwnsOne(product => product.Sku);
                 entity.OwnsOne(product => product.Price);
+            });
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.HasKey(user => user.Id);
+                entity.Property(user => user.Id)
+                    .HasConversion(id => id.Value, value => new UserId(value));
             });
         }
     }

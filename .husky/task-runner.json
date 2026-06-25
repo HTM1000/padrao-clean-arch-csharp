@@ -1,0 +1,10 @@
+{
+  "tasks": [
+    {
+      "name": "format",
+      "group": "pre-commit",
+      "command": "dotnet",
+      "args": [ "format", "--verify-no-changes" ]
+    }
+  ]
+}

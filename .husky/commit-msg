@@ -1,0 +1,10 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+# Valida Conventional Commits (sem dependência de Node).
+pattern='^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .{1,}'
+if ! grep -qE "$pattern" "$1"; then
+  echo "✗ Mensagem fora do padrão Conventional Commits."
+  echo "  Use: feat:, fix:, docs:, style:, refactor:, perf:, test:, build:, ci:, chore:, revert:"
+  exit 1
+fi

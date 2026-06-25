@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "Henrique",
+  "classifications": [ "Web", "API", "Clean Architecture", "DDD", "CQRS" ],
+  "identity": "CleanArchTemplate.CSharp",
+  "name": "Clean Architecture Template (DDD + CQRS)",
+  "shortName": "cleanarch",
+  "sourceName": "CleanArchTemplate",
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "preferNameDirectory": true,
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/bin/**",
+            "**/obj/**",
+            "**/.vs/**",
+            "**/.git/**",
+            "docs/superpowers/**"
+          ]
+        }
+      ]
+    }
+  ]
+}
