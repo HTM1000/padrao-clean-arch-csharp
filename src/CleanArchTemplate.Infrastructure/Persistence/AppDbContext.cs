@@ -1,6 +1,7 @@
 using System.Reflection;
 using CleanArchTemplate.Application.Common.Abstractions;
 using CleanArchTemplate.Domain.Products;
+using CleanArchTemplate.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchTemplate.Infrastructure.Persistence;
@@ -10,6 +11,8 @@ public sealed class AppDbContext(DbContextOptions<AppDbContext> options)
     : DbContext(options), IApplicationDbContext
 {
     public DbSet<Product> Products => Set<Product>();
+
+    public DbSet<User> Users => Set<User>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

@@ -1,4 +1,5 @@
 using CleanArchTemplate.Domain.Products;
+using CleanArchTemplate.Domain.Users;
 using Microsoft.EntityFrameworkCore;
 
 namespace CleanArchTemplate.Application.Common.Abstractions;
@@ -7,6 +8,8 @@ namespace CleanArchTemplate.Application.Common.Abstractions;
 public interface IApplicationDbContext
 {
     DbSet<Product> Products { get; }
+
+    DbSet<User> Users { get; }
 
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
